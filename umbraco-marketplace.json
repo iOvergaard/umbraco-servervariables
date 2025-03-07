@@ -1,0 +1,14 @@
+{
+    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json", 
+    "AuthorDetails": {
+      "Name": "Jacob Overgaard",
+      "ImageUrl": "https://github.com/iOvergaard.png"
+    },
+    "Category": "Developer Tools",
+    "Description": "",
+    "LicenseTypes": [ "Free" ],
+    "IssueTrackerUrl": "https://github.com/iOvergaard/umbraco-servervariables/issues",
+    "PackageType": "Package",
+    "Tags": ["javascript", "variables"],
+    "Title": "Server Variables "
+  }
