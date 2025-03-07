@@ -17,11 +17,12 @@ public class ServerVariablesController(IServerVariablesService serverVariablesSe
         return Content($"export default {serverVariables.ToJson()}");
     }
 
-    [HttpGet("{filename}.js")]
-    public IActionResult Index(string filename)
+    [HttpGet("{sectionName}.js")]
+    public IActionResult Index(string sectionName)
     {
         // return random content and header for javascript
         Response.Headers.ContentType = "application/javascript";
-        return Content("export default { 'apiKey': '123456789', 'apiUrl': 'https://api.example.com', 'fromServer': '" + filename + "' };");
+        Dictionary<string, string?> serverVariables = serverVariablesService.GetSection(sectionName);
+        return Content($"export default {serverVariables.ToJson()};");
     }
 }
