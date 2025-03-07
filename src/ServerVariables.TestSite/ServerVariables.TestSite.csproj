@@ -20,56 +20,6 @@
     <ProjectReference Include="..\ServerVariables\ServerVariables.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="uSync\v15\DataTypes\" />
-    <Folder Include="uSync\v15\Languages\" />
-    <Folder Include="uSync\v15\MediaTypes\" />
-    <Folder Include="uSync\v15\MemberTypes\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="uSync\v15\MemberTypes\member.config" />
-    <Content Remove="uSync\v15\MediaTypes\umbracomediavideo.config" />
-    <Content Remove="uSync\v15\MediaTypes\umbracomediavectorgraphics.config" />
-    <Content Remove="uSync\v15\MediaTypes\umbracomediaaudio.config" />
-    <Content Remove="uSync\v15\MediaTypes\umbracomediaarticle.config" />
-    <Content Remove="uSync\v15\MediaTypes\image.config" />
-    <Content Remove="uSync\v15\MediaTypes\folder.config" />
-    <Content Remove="uSync\v15\DataTypes\UploadVideo.config" />
-    <Content Remove="uSync\v15\DataTypes\UploadVectorGraphics.config" />
-    <Content Remove="uSync\v15\DataTypes\UploadFile.config" />
-    <Content Remove="uSync\v15\DataTypes\UploadAudio.config" />
-    <Content Remove="uSync\v15\DataTypes\UploadArticle.config" />
-    <Content Remove="uSync\v15\DataTypes\Truefalse.config" />
-    <Content Remove="uSync\v15\DataTypes\Textstring.config" />
-    <Content Remove="uSync\v15\DataTypes\Textarea.config" />
-    <Content Remove="uSync\v15\DataTypes\Tags.config" />
-    <Content Remove="uSync\v15\DataTypes\RichtextEditor.config" />
-    <Content Remove="uSync\v15\DataTypes\Radiobox.config" />
-    <Content Remove="uSync\v15\DataTypes\Numeric.config" />
-    <Content Remove="uSync\v15\DataTypes\MultipleMediaPicker.config" />
-    <Content Remove="uSync\v15\DataTypes\MultipleImageMediaPicker.config" />
-    <Content Remove="uSync\v15\DataTypes\MultiURLPicker.config" />
-    <Content Remove="uSync\v15\DataTypes\MemberPicker.config" />
-    <Content Remove="uSync\v15\DataTypes\MediaPicker.config" />
-    <Content Remove="uSync\v15\DataTypes\ListViewMedia.config" />
-    <Content Remove="uSync\v15\DataTypes\ListViewContent.config" />
-    <Content Remove="uSync\v15\DataTypes\LabelTime.config" />
-    <Content Remove="uSync\v15\DataTypes\LabelString.config" />
-    <Content Remove="uSync\v15\DataTypes\LabelInteger.config" />
-    <Content Remove="uSync\v15\DataTypes\LabelDecimal.config" />
-    <Content Remove="uSync\v15\DataTypes\LabelDatetime.config" />
-    <Content Remove="uSync\v15\DataTypes\LabelBigint.config" />
-    <Content Remove="uSync\v15\DataTypes\ImageMediaPicker.config" />
-    <Content Remove="uSync\v15\DataTypes\ImageCropper.config" />
-    <Content Remove="uSync\v15\DataTypes\DropdownMultiple.config" />
-    <Content Remove="uSync\v15\DataTypes\Dropdown.config" />
-    <Content Remove="uSync\v15\DataTypes\DatePickerWithTime.config" />
-    <Content Remove="uSync\v15\DataTypes\DatePicker.config" />
-    <Content Remove="uSync\v15\DataTypes\ContentPicker.config" />
-    <Content Remove="uSync\v15\DataTypes\CheckboxList.config" />
-  </ItemGroup>
-
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
