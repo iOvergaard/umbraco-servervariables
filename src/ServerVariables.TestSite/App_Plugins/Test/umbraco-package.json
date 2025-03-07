@@ -1,0 +1,13 @@
+{
+  "$schema": "../../umbraco-package-schema.json",
+  "name": "Test",
+  "version": "0.0.0",
+  "extensions": [
+    {
+      "type": "backofficeEntryPoint",
+      "alias": "Test",
+      "name": "Test that server variables are working",
+      "js": "/App_Plugins/Test/test.js"
+    }
+  ]
+}
