@@ -14,7 +14,7 @@ public class ServerVariablesController(IConfiguration configuration) : Controlle
         IConfigurationSection serverVariablesSection = configuration.GetSection("ServerVariables");
         Dictionary<string, string?> serverVariables = serverVariablesSection.AsEnumerable().Where(x => !string.IsNullOrEmpty(x.Value)).ToDictionary(x => x.Key.Replace("ServerVariables:", string.Empty), x => x.Value);
 
-        Response.Headers.Add("Content-Type", "application/javascript");
+        Response.Headers.ContentType = "application/javascript";
         return Content($"export default {serverVariables.ToJson()}");
     }
 
@@ -22,7 +22,7 @@ public class ServerVariablesController(IConfiguration configuration) : Controlle
     public IActionResult Index(string filename)
     {
         // return random content and header for javascript
-        Response.Headers.Add("Content-Type", "application/javascript");
+        Response.Headers.ContentType = "application/javascript";
         return Content("export default { 'apiKey': '123456789', 'apiUrl': 'https://api.example.com', 'fromServer': '" + filename + "' };");
     }
 }
