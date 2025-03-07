@@ -3,12 +3,8 @@ using Umbraco.Cms.Core.Composing;
 
 namespace ServerVariables.TestSite;
 
-public class TestServerVariablesComposer : IComposer
+public class TestServerVariablesComposer : ComponentComposer<TestServerVariablesComponent>
 {
-    public void Compose(IUmbracoBuilder builder)
-    {
-        builder.AddComponent<TestServerVariablesComponent>();
-    }
 }
 
 public class TestServerVariablesComponent(IServerVariablesService serverVariablesService) : IAsyncComponent
