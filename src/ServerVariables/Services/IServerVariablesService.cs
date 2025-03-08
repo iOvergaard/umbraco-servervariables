@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Configuration;
-
 namespace ServerVariables.Services;
 
 public interface IServerVariablesService
