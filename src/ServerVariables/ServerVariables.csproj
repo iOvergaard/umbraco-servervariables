@@ -9,8 +9,8 @@
   <PropertyGroup>
     <Product>Umbraco.Community.ServerVariables</Product>
     <PackageId>Umbraco.Community.ServerVariables</PackageId>
-    <Title>Server Variables </Title>
-    <Description>...</Description>
+    <Title>Server Variables</Title>
+    <Description>Low/no-code solution to exposing server variables to JavaScript in Umbraco.</Description>
     <PackageTags>umbraco;umbraco-marketplace</PackageTags>
     <Authors>Jacob Overgaard</Authors>
     <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © Jacob Overgaard</Copyright>
@@ -19,8 +19,15 @@
     <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIcon></PackageIcon>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docs\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms.Web.Website" Version="*" />
