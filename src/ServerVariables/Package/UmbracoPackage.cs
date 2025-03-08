@@ -29,7 +29,7 @@ internal sealed class UmbracoPackage : IComposer
                 AllowTelemetry = true,
                 Version = assembly.GetName().Version?.ToString(),
                 Extensions = [],
-                AllowPublicAccess = options.Value.AllowPublicAccess,
+                AllowPublicAccess = true,
                 Importmap = new PackageManifestImportmap
                 {
                     Imports = new Dictionary<string, string>
