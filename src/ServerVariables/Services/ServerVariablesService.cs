@@ -8,12 +8,12 @@ public class ServerVariablesService(IConfiguration configuration) : IServerVaria
 
     public Dictionary<string, string?> GetAppSettings()
     {
-        IConfigurationSection serverVariablesSection = configuration.GetSection("ServerVariables");
+        IConfigurationSection serverVariablesSection = configuration.GetSection(Constants.ServerVariablesValues);
         return serverVariablesSection
             .AsEnumerable()
             .Where(x => !string.IsNullOrEmpty(x.Value))
             .ToDictionary(x =>
-                    x.Key.Replace("ServerVariables:", string.Empty),
+                    x.Key.Replace($"{Constants.ServerVariablesValues}:", string.Empty),
                 x => x.Value);
     }
 

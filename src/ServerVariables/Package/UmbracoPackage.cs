@@ -1,5 +1,6 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Manifest;
@@ -14,26 +15,27 @@ internal sealed class UmbracoPackage : IComposer
         builder.Services.AddSingleton<IPackageManifestReader, ServerVariablesPackage>();
     }
 
-    private class ServerVariablesPackage : IPackageManifestReader
+    private class ServerVariablesPackage(IOptions<ServerVariablesOptions> options) : IPackageManifestReader
     {
         public Task<IEnumerable<PackageManifest>> ReadPackageManifestsAsync()
         {
-            // get version from assembly
+            // get info from assembly
             Assembly assembly = typeof(UmbracoPackage).Assembly;
-            Version? version = assembly.GetName().Version;
+
             PackageManifest packageManifest = new()
             {
                 Id = "Umbraco.Community.ServerVariables",
-                Name = "Umbraco.Community.ServerVariables",
+                Name = assembly.GetName().FullName,
                 AllowTelemetry = true,
-                Version = version?.ToString(),
+                Version = assembly.GetName().Version?.ToString(),
                 Extensions = [],
+                AllowPublicAccess = options.Value.AllowPublicAccess,
                 Importmap = new PackageManifestImportmap
                 {
                     Imports = new Dictionary<string, string>
                     {
-                        { "vars/", "/App_Plugins/ServerVariables/" },
-                        { "vars", "/App_Plugins/ServerVariables/index.js" }
+                        { $"{options.Value.Namespace}/", "/App_Plugins/ServerVariables/" },
+                        { options.Value.Namespace, "/App_Plugins/ServerVariables/index.js" }
                     }
                 }
             };
