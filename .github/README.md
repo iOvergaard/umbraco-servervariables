@@ -4,13 +4,13 @@
 [![NuGet](https://img.shields.io/nuget/vpre/Umbraco.Community.ServerVariables?color=0273B3)](https://www.nuget.org/packages/Umbraco.Community.ServerVariables)
 [![GitHub license](https://img.shields.io/github/license/iOvergaard/umbraco-servervariables?color=8AB803)](../LICENSE)
 
-This package reintroduces server variables from C# to JavaScript in Umbraco 15+ with a twist. 
+This package reintroduces server variables from C# to JavaScript in Umbraco 15+ with a twist.
 
-In short, it is a simple way to add server variables to your Umbraco site. It allows you to add server variables to your site without having to write any code.
+In short, it is a simple way to expose server variables to your Umbraco Backoffice and/or Frontend. It allows you to add server variables to your site without having to write any or only a little code.
 
 The variables are added through appsettings.json or through the IServerVariablesService interface.
 
-The twist is that the variables are made available through the importmap in the frontend. This way, you can import the variables where you need them without having to rely on any global JavaScript objects.
+The twist is that the variables are made available through the importmap in the browser. This way, you can import the variables where you need them without having to rely on any global JavaScript objects.
 
 ## Installation
 
@@ -40,19 +40,19 @@ Add the following to your `appsettings.json`:
 
 ### Configuration through IServerVariablesService
 
-Add the following to your `Startup.cs` or ideally in a composer:
+Add the following in a composer:
 
 ```csharp
 using ServerVariables.Services;
 using Umbraco.Cms.Core.Composing;
 
-namespace ServerVariables.TestSite;
+namespace YourNamespace;
 
-public class TestServerVariablesComposer : ComponentComposer<TestServerVariablesComponent>
+public class ServerVariablesComposer : ComponentComposer<ServerVariablesComponent>
 {
 }
 
-public class TestServerVariablesComponent(IServerVariablesService serverVariablesService) : IAsyncComponent
+public class ServerVariablesComponent(IServerVariablesService serverVariablesService) : IAsyncComponent
 {
     public Task InitializeAsync(bool isRestarting, CancellationToken cancellationToken)
     {
@@ -98,3 +98,7 @@ This will log `MyValue` to the console.
 ## Contributing
 
 Contributions to this package are most welcome! Please read the [Contributing Guidelines](CONTRIBUTING.md).
+
+## Acknowledgements
+
+<a href="https://www.flaticon.com/free-icons/javascript" title="javascript icons">Javascript icons created by Graphix's Art - Flaticon</a>
