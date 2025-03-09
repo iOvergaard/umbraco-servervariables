@@ -88,4 +88,4 @@ This will log `MyValue` to the console.
 
 ## Acknowledgements
 
-<a href="https://www.flaticon.com/free-icons/javascript" title="javascript icons">Javascript icons created by Graphix's Art - Flaticon</a>
+[Javascript icons created by Graphix's Art - Flaticon](https://www.flaticon.com/free-icons/javascript)
