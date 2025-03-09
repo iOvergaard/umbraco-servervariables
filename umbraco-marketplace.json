@@ -1,14 +1,27 @@
 {
-    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json", 
-    "AuthorDetails": {
-      "Name": "Jacob Overgaard",
-      "ImageUrl": "https://github.com/iOvergaard.png"
-    },
-    "Category": "Developer Tools",
-    "Description": "",
-    "LicenseTypes": [ "Free" ],
-    "IssueTrackerUrl": "https://github.com/iOvergaard/umbraco-servervariables/issues",
-    "PackageType": "Package",
-    "Tags": ["javascript", "variables"],
-    "Title": "Server Variables "
-  }
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AuthorDetails": {
+    "Name": "Jacob Overgaard",
+    "ImageUrl": "https://github.com/iOvergaard.png",
+    "Url": "https://snebold.dk",
+    "Description": "Jacob works for Umbraco HQ on the CMS team. He is a developer and loves to work with JavaScript and Umbraco. He is also a big fan of the Umbraco community and loves to contribute to the community in any way he can."
+  },
+  "Category": "Developer Tools",
+  "Description": "Low/no-code solution to access server variables with JavaScript in Umbraco.",
+  "LicenseTypes": [
+    "Free"
+  ],
+  "LookingForContributors": true,
+  "LookingForMaintainer": false,
+  "VersionDependencyMode": "SemVer",
+  "IssueTrackerUrl": "https://github.com/iOvergaard/umbraco-servervariables/issues",
+  "DiscussionForumUrl": "https://github.com/iOvergaard/umbraco-servervariables/discussions",
+  "PackageType": "Package",
+  "Tags": [
+    "javascript",
+    "variables",
+    "environment",
+    "backoffice"
+  ],
+  "Title": "Server Variables"
+}
