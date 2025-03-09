@@ -10,36 +10,26 @@
     <Product>Umbraco.Community.ServerVariables</Product>
     <PackageId>Umbraco.Community.ServerVariables</PackageId>
     <Title>Server Variables</Title>
-    <Description>Low/no-code solution to exposing server variables to JavaScript in Umbraco.</Description>
+    <Description>Low/no-code solution to access server variables with JavaScript in Umbraco.</Description>
     <PackageTags>umbraco;umbraco-marketplace</PackageTags>
     <Authors>Jacob Overgaard</Authors>
     <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © Jacob Overgaard</Copyright>
     <PackageProjectUrl>https://github.com/iOvergaard/umbraco-servervariables</PackageProjectUrl>
     <RepositoryUrl>https://github.com/iOvergaard/umbraco-servervariables</RepositoryUrl>
-    <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\docs\logo.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <None Include="..\..\docs\logo.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\docs\README_nuget.md" Pack="true" PackagePath="README.md" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms.Web.Website" Version="*" />
     <PackageReference Include="Umbraco.Cms.Web.Common" Version="*" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\docs\README_nuget.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Remove="README.txt" />
   </ItemGroup>
 
 </Project>
