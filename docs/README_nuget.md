@@ -26,9 +26,11 @@ Add the following to your `appsettings.json`:
 }
 ```
 
-- **Namespace**: This is the namespace that the variables will be available under in the frontend through the importmap. For example, if you set this to `myVars`, you will import the variables like this: `import { MyVariable } from 'myVars';`.
-- **CacheHeader**: This is the cache header value that will be set on the importmap. This is useful if you want to cache the importmap. By default, it is set to `no-cache, no-store, must-revalidate`.
-- **Values**: This is an object with the variables you want to add. The key is the name of the variable, and the value is the value of the variable.
+| Config      | Description                                                                                                                                                                                                                        |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Namespace   | This is the namespace that the variables will be available under in the frontend through the importmap. For example, if you set this to `myVars`, you will import the variables like this: `import { MyVariable } from 'myVars';`. |
+| CacheHeader | This is the cache header value that will be set on the importmap. This is useful if you want to cache the importmap. By default, it is set to `no-cache, no-store, must-revalidate`.                                               |
+| Values      | This is an object with the variables you want to add. The key is the name of the variable, and the value is the value of the variable.                                                                                             |
 
 ## Configuration through IServerVariablesService
 
