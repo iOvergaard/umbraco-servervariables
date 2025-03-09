@@ -26,11 +26,11 @@
   "Title": "Server Variables",
   "Screenshots": [
     {
-      "ImageUrl": "https://raw.githubusercontent.com/iOvergaard/umbraco-servervariables/main/docs/1-appsettings.jpg",
+      "ImageUrl": "https://raw.githubusercontent.com/iOvergaard/umbraco-servervariables/refs/heads/main/docs/1-appsettings.jpg",
       "Caption": "Set up server variables through appsettings.json"
     },
     {
-      "ImageUrl": "https://raw.githubusercontent.com/iOvergaard/umbraco-servervariables/main/docs/2-csharp.jpg",
+      "ImageUrl": "https://raw.githubusercontent.com/iOvergaard/umbraco-servervariables/refs/heads/main/docs/2-csharp.jpg",
       "Caption": "Set up server variables through C#"
     }
   ]
