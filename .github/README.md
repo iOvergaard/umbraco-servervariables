@@ -12,6 +12,14 @@ Server Variables was a thing up until Umbraco 13, where you could add variables 
 
 In short, this package gives you a simple way to expose server variables to your Umbraco Backoffice and/or Frontend. It allows you to add server variables to your site without having to write any or only a little code.
 
+The variables are added either through **appsettings.json** or through the `IServerVariablesService` interface and are accessed through an importmap in the browser:
+
+```javascript
+import vars from 'vars';
+
+console.log(vars); // { apiUrl: 'https://api.example.com' }
+```
+
 ## Installation
 
 Add the package to an existing Umbraco website (v15+) from nuget:
