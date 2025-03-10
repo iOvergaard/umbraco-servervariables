@@ -8,6 +8,7 @@
   },
   "Category": "Developer Tools",
   "Description": "Low/no-code solution to access server variables with JavaScript in Umbraco.",
+  "DocumentationUrl": "https://github.com/iOvergaard/umbraco-servervariables/tree/main/docs",
   "LicenseTypes": [
     "Free"
   ],
