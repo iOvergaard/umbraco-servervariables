@@ -12,6 +12,14 @@ The variables are added through **appsettings.json** or through the `IServerVari
 
 The twist is that the variables are made available through the importmap in the browser. This way, you can import the variables where you need them without having to rely on any global JavaScript objects. They will also work in the Frontend which is a big plus.
 
+The variables are added either through **appsettings.json** or through the `IServerVariablesService` interface and are accessed through an importmap in the browser:
+
+```javascript
+import vars from 'vars';
+
+console.log(vars); // { apiUrl: 'https://api.example.com' }
+```
+
 **NB!** Do not include any secrets in the server variables as they will be exposed to the public.
 
 ## Requirements
