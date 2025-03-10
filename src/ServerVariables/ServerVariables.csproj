@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\docs\logo.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\docs\images\logo.png" Pack="true" PackagePath="\" />
     <None Include="..\..\docs\README_nuget.md" Pack="true" PackagePath="README.md" />
   </ItemGroup>
 
