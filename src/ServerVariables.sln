@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerVariables.TestSite", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerVariables", "ServerVariables\ServerVariables.csproj", "{9E72F602-E242-45FD-B2EA-343B1D045B20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerVariables.UnitTest", "ServerVariables.UnitTest\ServerVariables.UnitTest.csproj", "{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

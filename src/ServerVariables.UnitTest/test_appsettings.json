@@ -1,0 +1,7 @@
+{
+  "ServerVariables": {
+    "Values": {
+      "FromAppSettings": "Hello from test_appsettings.json"
+    }
+  }
+}
