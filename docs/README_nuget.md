@@ -14,81 +14,19 @@ The twist is that the variables are made available through the importmap in the 
 
 **NB!** Do not include any secrets in the server variables as they will be exposed to the public.
 
-## Configuration through appsettings.json
+## Requirements
 
-Add the following to your `appsettings.json`:
+- Umbraco 15 or higher
+- .NET 9 or higher
 
-```json
-{
-  "ServerVariables": {
-    "Namespace": "vars",
-    "CacheHeader": "no-cache, no-store, must-revalidate",
-    "Values": {
-      "MyVariable": "MyValue"
-    }
-  }
-}
-```
+## Usage
 
-| Config      | Description                                                                                                                                                                                                                        |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Namespace   | This is the namespace that the variables will be available under in the frontend through the importmap. For example, if you set this to `myVars`, you will import the variables like this: `import { MyVariable } from 'myVars';`. |
-| CacheHeader | This is the cache header value that will be set on the importmap. This is useful if you want to cache the importmap. By default, it is set to `no-cache, no-store, must-revalidate`.                                               |
-| Values      | This is an object with the variables you want to add. The key is the name of the variable, and the value is the value of the variable.                                                                                             |
+See the documentation for more information on how to use the package:
 
-## Configuration through IServerVariablesService
-
-Add the following in a composer:
-
-```csharp
-using ServerVariables.Services;
-using Umbraco.Cms.Core.Composing;
-
-namespace YourNamespace;
-
-public class ServerVariablesComposer : ComponentComposer<ServerVariablesComponent>
-{
-}
-
-public class ServerVariablesComponent(IServerVariablesService serverVariablesService) : IAsyncComponent
-{
-    public Task InitializeAsync(bool isRestarting, CancellationToken cancellationToken)
-    {
-        serverVariablesService.SetVariable("MyVariable", "MyValue");
-
-        return Task.CompletedTask;
-    }
-
-    public Task TerminateAsync(bool isRestarting, CancellationToken cancellationToken)
-    {
-        return Task.CompletedTask;
-    }
-}
-```
-
-## Usage in the Backoffice
-
-In any Backoffice component, you can now import the server variables where you need them:
-
-```javascript
-import { MyVariable } from 'vars';
-
-console.log('MyVariable', MyVariable);
-```
-
-This will log `MyValue` to the console.
-
-## Usage in the Frontend
-
-In any frontend component, you can now import the server variables where you need them by accessing the virtual path directly:
-
-```javascript
-import { MyVariable } from '/App_Plugins/ServerVariables/index.js';
-
-console.log('MyVariable', MyVariable);
-```
-
-This will log `MyValue` to the console.
+- [Installation](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/01-install.md)
+- [Usage with appsettings.json](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/02-appsettings.md)
+- [Usage with IServerVariablesService](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/03-csharp.md)
+- [Usage in the Frontend](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/04-frontend.md)
 
 ## Acknowledgements
 
