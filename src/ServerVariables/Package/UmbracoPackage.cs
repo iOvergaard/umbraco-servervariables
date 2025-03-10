@@ -21,13 +21,14 @@ internal sealed class UmbracoPackage : IComposer
         {
             // get info from assembly
             Assembly assembly = typeof(UmbracoPackage).Assembly;
+            var version = assembly.GetName().Version?.ToString() ?? "0.0.0";
 
             PackageManifest packageManifest = new()
             {
                 Id = "Umbraco.Community.ServerVariables",
                 Name = assembly.GetName().FullName,
                 AllowTelemetry = true,
-                Version = assembly.GetName().Version?.ToString(),
+                Version = version,
                 Extensions = [],
                 AllowPublicAccess = true,
                 Importmap = new PackageManifestImportmap
@@ -35,7 +36,7 @@ internal sealed class UmbracoPackage : IComposer
                     Imports = new Dictionary<string, string>
                     {
                         { $"{options.Value.Namespace}/", "/App_Plugins/ServerVariables/" },
-                        { options.Value.Namespace, "/App_Plugins/ServerVariables/index.js" }
+                        { options.Value.Namespace, $"/App_Plugins/ServerVariables/index.js?v={version}" }
                     }
                 }
             };
