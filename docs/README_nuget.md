@@ -1,14 +1,18 @@
 # Server Variables for Umbraco
 
-This package reintroduces server variables from C# to JavaScript in Umbraco 15+ with a twist.
+This package reintroduces server variables in Umbraco 15+, which is a way to expose variables from C# to JavaScript.
 
-**NB!**: Do not include any secrets in the server variables as they will be exposed to the public.
+## What is it?
 
-In short, it is a simple way to expose server variables to your Umbraco Backoffice and/or Frontend. It allows you to add server variables to your site without having to write any or only a little code.
+Server Variables was a thing up until Umbraco 13, where you could add variables to your site through the `ServerVariablesParser.Parsing` notification and access them in the Backoffice through `Umbraco.Sys.ServerVariables`. This was removed in Umbraco 14, but this package reintroduces the concept with a twist.
 
-The variables are added through appsettings.json or through the IServerVariablesService interface.
+In short, this package gives you a simple way to expose server variables to your Umbraco Backoffice and/or Frontend. It allows you to add server variables to your site without having to write any or only a little code.
 
-The twist is that the variables are made available through the importmap in the browser. This way, you can import the variables where you need them without having to rely on any global JavaScript objects.
+The variables are added through **appsettings.json** or through the `IServerVariablesService` interface.
+
+The twist is that the variables are made available through the importmap in the browser. This way, you can import the variables where you need them without having to rely on any global JavaScript objects. They will also work in the Frontend which is a big plus.
+
+**NB!** Do not include any secrets in the server variables as they will be exposed to the public.
 
 ## Configuration through appsettings.json
 
@@ -67,7 +71,7 @@ public class ServerVariablesComponent(IServerVariablesService serverVariablesSer
 In any Backoffice component, you can now import the server variables where you need them:
 
 ```javascript
-import { MyVariable } from '@server-variables';
+import { MyVariable } from 'vars';
 
 console.log('MyVariable', MyVariable);
 ```
