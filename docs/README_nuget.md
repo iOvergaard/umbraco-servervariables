@@ -23,10 +23,10 @@ The twist is that the variables are made available through the importmap in the 
 
 See the documentation for more information on how to use the package:
 
-- [Installation](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/01-install.md)
-- [Usage with appsettings.json](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/02-appsettings.md)
-- [Usage with IServerVariablesService](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/03-csharp.md)
-- [Usage in the Frontend](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/04-frontend.md)
+- [Installation](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/README.md)
+- [Usage with appsettings.json](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/01-appsettings.md)
+- [Usage with IServerVariablesService](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/02-csharp.md)
+- [Usage in the Frontend](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/03-frontend.md)
 
 ## Acknowledgements
 

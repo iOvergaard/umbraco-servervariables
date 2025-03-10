@@ -41,6 +41,6 @@ The package is configured using the `appsettings.json` file in your project. The
 
 Use either the `IServerVariablesService` or the `appsettings.json` file to add variables to the importmap. The variables will be available in the frontend under the namespace you set in the configuration:
 
-- [Configuration through appsettings.json](02-appsettings.md)
-- [Configuration through IServerVariablesService](03-csharp.md)
-- [Usage in the Frontend](04-frontend.md)
+- [Configuration through appsettings.json](01-appsettings.md)
+- [Configuration through IServerVariablesService](02-csharp.md)
+- [Usage in the Frontend](03-frontend.md)

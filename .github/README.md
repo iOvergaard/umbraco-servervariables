@@ -20,7 +20,7 @@ Add the package to an existing Umbraco website (v15+) from nuget:
 
 ## Usage
 
-See the [documentation](../docs/01-install.md) for more information.
+See the [documentation](../docs/README.md) for more information.
 
 ## Contributing
 
