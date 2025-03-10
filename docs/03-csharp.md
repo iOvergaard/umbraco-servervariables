@@ -48,7 +48,7 @@ console.log(MyVariable); // MyValue
 Additionally, you can add sections to the importmap using the `IServerVariablesService`:
 
 ```csharp
-serverVariablesService.AddSection("MySection", new Dictionary<string, string>
+serverVariablesService.SetSection("MySection", new Dictionary<string, string>
 {
     { "MyVariable", "MyValue" }
 });

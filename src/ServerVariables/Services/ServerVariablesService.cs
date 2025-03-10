@@ -44,4 +44,9 @@ public class ServerVariablesService(IConfiguration configuration) : IServerVaria
             ? new Dictionary<string, string?>()
             : sectionVariables;
     }
+
+    public bool SetSection(string sectionName, Dictionary<string, string?> values)
+    {
+        return _serverVariables.TryAdd(sectionName, values);
+    }
 }

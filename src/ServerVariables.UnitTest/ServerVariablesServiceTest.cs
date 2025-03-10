@@ -71,4 +71,31 @@ public class ServerVariablesServiceTest
             Assert.That(section["FromTest"], Is.EqualTo("Hello from test"));
         });
     }
+
+    [Test]
+    public void Test_SetSection()
+    {
+        // Arrange
+        Dictionary<string, string?> values = new Dictionary<string, string?>
+        {
+            {"FromTest", "Hello from test"},
+            {"FromTest2", "Hello from test 2"}
+        };
+
+        // Act
+        var result = _serverVariablesService.SetSection("test", values);
+
+        // Assert
+        Assert.That(result, Is.True);
+        Dictionary<string, string?> section = _serverVariablesService.GetSection("test");
+        Assert.That(section, Is.Not.Null);
+        Assert.Multiple(() =>
+        {
+            Assert.That(section, Is.Not.Empty);
+            Assert.That(section.ContainsKey("FromTest"), Is.True);
+            Assert.That(section["FromTest"], Is.EqualTo("Hello from test"));
+            Assert.That(section.ContainsKey("FromTest2"), Is.True);
+            Assert.That(section["FromTest2"], Is.EqualTo("Hello from test 2"));
+        });
+    }
 }

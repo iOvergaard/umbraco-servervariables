@@ -29,4 +29,11 @@ public interface IServerVariablesService
     /// <param name="section">The name of the section</param>
     /// <returns></returns>
     public Dictionary<string, string?> GetSection(string section);
+
+    /// <summary>
+    ///     Sets a section of server variables
+    /// </summary>
+    /// <param name="sectionName">The name of the section</param>
+    /// <param name="values">The dictionary of the variables</param>
+    public bool SetSection(string sectionName, Dictionary<string, string?> values);
 }
