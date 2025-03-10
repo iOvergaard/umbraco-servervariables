@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		..\.github\CONTRIBUTING.md = ..\.github\CONTRIBUTING.md
 		..\.github\README.md = ..\.github\README.md
+		..\.github\workflows\release.yml = ..\.github\workflows\release.yml
+		..\.github\workflows\test.yml = ..\.github\workflows\test.yml
 		..\docs\README_nuget.md = ..\docs\README_nuget.md
 		..\umbraco-marketplace.json = ..\umbraco-marketplace.json
 	EndProjectSection
@@ -14,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerVariables.TestSite", "ServerVariables.TestSite\ServerVariables.TestSite.csproj", "{A5C8B210-4D48-4373-BE01-658117F38C47}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerVariables", "ServerVariables\ServerVariables.csproj", "{9E72F602-E242-45FD-B2EA-343B1D045B20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerVariables.UnitTest", "ServerVariables.UnitTest\ServerVariables.UnitTest.csproj", "{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,18 @@ Global
 		{9E72F602-E242-45FD-B2EA-343B1D045B20}.Release|x64.Build.0 = Release|Any CPU
 		{9E72F602-E242-45FD-B2EA-343B1D045B20}.Release|x86.ActiveCfg = Release|Any CPU
 		{9E72F602-E242-45FD-B2EA-343B1D045B20}.Release|x86.Build.0 = Release|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Debug|x64.Build.0 = Debug|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Debug|x86.Build.0 = Debug|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Release|x64.ActiveCfg = Release|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Release|x64.Build.0 = Release|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Release|x86.ActiveCfg = Release|Any CPU
+		{07B0B5C2-105A-4FC4-80D0-6A9092B62BB3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

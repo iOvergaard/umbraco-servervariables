@@ -20,6 +20,11 @@ jobs:
         with:
           dotnet-version: 9.0.x
 
+      - name: Test
+        with:
+          working-directory: src
+        run: dotnet test -c Release
+
       - name: Build & Pack
         run: dotnet pack src/ServerVariables/ServerVariables.csproj -c Release /p:Version=${{github.ref_name}}
 
