@@ -1,9 +1,7 @@
 using System.ComponentModel;
-using Umbraco.Cms.Core.Configuration.Models;
 
 namespace ServerVariables;
 
-[UmbracoOptions(Constants.ServerVariablesSection, BindNonPublicProperties = true)]
 public class ServerVariablesOptions
 {
     /// <summary>

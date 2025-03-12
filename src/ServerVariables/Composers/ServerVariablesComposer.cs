@@ -4,14 +4,13 @@ using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
-namespace ServerVariables.Composers
+namespace ServerVariables.Composers;
+
+public class ServerVariablesApiComposer : IComposer
 {
-    public class ServerVariablesApiComposer : IComposer
+    public void Compose(IUmbracoBuilder builder)
     {
-        public void Compose(IUmbracoBuilder builder)
-        {
-            builder.Services.Configure<ServerVariablesOptions>(builder.Config.GetSection(Constants.ServerVariablesSection));
-            builder.Services.AddUnique<IServerVariablesService, ServerVariablesService>();
-        }
+        builder.Services.Configure<ServerVariablesOptions>(builder.Config.GetSection(Constants.ServerVariablesSection));
+        builder.Services.AddUnique<IServerVariablesService, ServerVariablesService>();
     }
 }
