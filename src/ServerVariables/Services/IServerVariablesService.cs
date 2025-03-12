@@ -8,14 +8,14 @@ public interface IServerVariablesService
     /// <param name="key">The key</param>
     /// <param name="value">The value</param>
     /// <param name="sectionName">The section, for example a section "brand" would be imported from "vars/brand.js".</param>
-    public void SetVariable(string key, string value, string sectionName);
+    public void SetVariable(string key, dynamic value, string sectionName);
 
     /// <summary>
     ///     Sets a server variable
     /// </summary>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    public void SetVariable(string key, string value);
+    public void SetVariable(string key, dynamic value);
 
     /// <summary>
     ///     Gets a section of server variables
