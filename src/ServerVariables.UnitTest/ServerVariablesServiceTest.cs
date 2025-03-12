@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using ServerVariables.Services;
 
 namespace ServerVariables.UnitTest;
@@ -14,15 +15,18 @@ public class ServerVariablesServiceTest
         IConfigurationRoot configuration = new ConfigurationBuilder()
             .AddJsonFile("test_appsettings.json")
             .Build();
-        _serverVariablesService = new ServerVariablesService(configuration);
+
+        IOptions<ServerVariablesOptions> options =
+            Options.Create(configuration.GetSection(Constants.ServerVariablesSection).Get<ServerVariablesOptions>());
+
+        _serverVariablesService = new ServerVariablesService(options);
     }
 
     [Test]
-    public void Test_GetAppSettings()
+    public void Test_FromAppSettings()
     {
-
         // Act
-        Dictionary<string, string?> appSettings = _serverVariablesService.GetAppSettings();
+        Dictionary<string, dynamic> appSettings = _serverVariablesService.GetSection("index");
 
         // Assert
         Assert.That(appSettings, Is.Not.Null);
@@ -39,9 +43,10 @@ public class ServerVariablesServiceTest
     {
         // Arrange
         _serverVariablesService.SetVariable("FromTest", "Hello from test");
+        _serverVariablesService.SetVariable("FromBoolean", true);
 
         // Act
-        Dictionary<string, string?> section = _serverVariablesService.GetSection("index");
+        Dictionary<string, dynamic> section = _serverVariablesService.GetSection("index");
 
         // Assert
         Assert.That(section, Is.Not.Null);
@@ -50,6 +55,7 @@ public class ServerVariablesServiceTest
             Assert.That(section, Is.Not.Empty);
             Assert.That(section.ContainsKey("FromTest"), Is.True);
             Assert.That(section["FromTest"], Is.EqualTo("Hello from test"));
+            Assert.That(section.ContainsKey("FromBoolean"), Is.True);
         });
     }
 
@@ -60,7 +66,7 @@ public class ServerVariablesServiceTest
         _serverVariablesService.SetVariable("FromTest", "Hello from test", "test");
 
         // Act
-        Dictionary<string, string?> section = _serverVariablesService.GetSection("test");
+        Dictionary<string, dynamic> section = _serverVariablesService.GetSection("test");
 
         // Assert
         Assert.That(section, Is.Not.Null);
@@ -76,7 +82,7 @@ public class ServerVariablesServiceTest
     public void Test_SetSection()
     {
         // Arrange
-        Dictionary<string, string?> values = new Dictionary<string, string?>
+        Dictionary<string, dynamic> values = new()
         {
             {"FromTest", "Hello from test"},
             {"FromTest2", "Hello from test 2"}
@@ -87,7 +93,7 @@ public class ServerVariablesServiceTest
 
         // Assert
         Assert.That(result, Is.True);
-        Dictionary<string, string?> section = _serverVariablesService.GetSection("test");
+        Dictionary<string, dynamic> section = _serverVariablesService.GetSection("test");
         Assert.That(section, Is.Not.Null);
         Assert.Multiple(() =>
         {
