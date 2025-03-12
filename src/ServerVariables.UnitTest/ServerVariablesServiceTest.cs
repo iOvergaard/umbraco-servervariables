@@ -7,7 +7,7 @@ namespace ServerVariables.UnitTest;
 
 public class ServerVariablesServiceTest
 {
-    private IServerVariablesService _serverVariablesService;
+    private ServerVariablesService _serverVariablesService;
 
     [SetUp]
     public void Setup()
