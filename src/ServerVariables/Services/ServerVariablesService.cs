@@ -1,13 +1,12 @@
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 namespace ServerVariables.Services;
 
-public class ServerVariablesService(IConfiguration configuration, IOptionsMonitor<ServerVariablesOptions> options) : IServerVariablesService
+public class ServerVariablesService(IOptions<ServerVariablesOptions>? options) : IServerVariablesService
 {
     private readonly Dictionary<string, Dictionary<string, dynamic>> _serverVariables = new();
 
-    public void SetVariable(string key, string value, string sectionName)
+    public void SetVariable(string key, dynamic value, string sectionName)
     {
         // Check if the section exists
         if (!_serverVariables.TryGetValue(sectionName, out Dictionary<string, dynamic>? section))
@@ -23,7 +22,7 @@ public class ServerVariablesService(IConfiguration configuration, IOptionsMonito
         }
     }
 
-    public void SetVariable(string key, string value)
+    public void SetVariable(string key, dynamic value)
     {
         SetVariable(key, value, "index");
     }
@@ -47,7 +46,7 @@ public class ServerVariablesService(IConfiguration configuration, IOptionsMonito
         }
 
         // Append the app settings
-        Dictionary<string, dynamic>? appSettings = options.CurrentValue.Variables;
+        Dictionary<string, dynamic>? appSettings = options.Value.Variables;
 
         if (appSettings == null)
         {
