@@ -11,7 +11,7 @@ public class ServerVariablesComposer : IComposer
             .Configure((options) =>
             {
                 options.Namespace = "vars";
-                options.Variables = new Dictionary<string, dynamic> { { "hello", "from options" }, { "isEnabled", true } };
+                options.Values = new Dictionary<string, dynamic> { { "hello", "from options" }, { "isEnabled", true } };
             });
     }
 }

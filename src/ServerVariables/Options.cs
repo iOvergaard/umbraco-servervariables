@@ -24,5 +24,5 @@ public class ServerVariablesOptions
     ///     Gets the server variables.
     /// </summary>
     [DefaultValue(null)]
-    public Dictionary<string, dynamic>? Variables { get; set; }
+    public Dictionary<string, dynamic>? Values { get; set; }
 }
