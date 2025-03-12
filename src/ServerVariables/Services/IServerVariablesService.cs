@@ -3,12 +3,6 @@ namespace ServerVariables.Services;
 public interface IServerVariablesService
 {
     /// <summary>
-    ///     Gets the server variables for the appSettings.js file.
-    /// </summary>
-    /// <returns></returns>
-    public Dictionary<string, string?> GetAppSettings();
-
-    /// <summary>
     ///     Sets a server variable
     /// </summary>
     /// <param name="key">The key</param>
@@ -28,12 +22,12 @@ public interface IServerVariablesService
     /// </summary>
     /// <param name="section">The name of the section</param>
     /// <returns></returns>
-    public Dictionary<string, string?> GetSection(string section);
+    public Dictionary<string, dynamic> GetSection(string section);
 
     /// <summary>
     ///     Sets a section of server variables
     /// </summary>
     /// <param name="sectionName">The name of the section</param>
     /// <param name="values">The dictionary of the variables</param>
-    public bool SetSection(string sectionName, Dictionary<string, string?> values);
+    public bool SetSection(string sectionName, Dictionary<string, dynamic> values);
 }
