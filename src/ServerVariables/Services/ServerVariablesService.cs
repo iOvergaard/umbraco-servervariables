@@ -61,8 +61,8 @@ public class ServerVariablesService(IOptions<ServerVariablesOptions>? options) :
         return result;
     }
 
-    public bool SetSection(string sectionName, Dictionary<string, dynamic> values)
+    public bool SetSection(string sectionName, Dictionary<string, dynamic> variables)
     {
-        return _serverVariables.TryAdd(sectionName, values);
+        return _serverVariables.TryAdd(sectionName, variables);
     }
 }
