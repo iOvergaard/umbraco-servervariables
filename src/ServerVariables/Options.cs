@@ -3,7 +3,7 @@ using Umbraco.Cms.Core.Configuration.Models;
 
 namespace ServerVariables;
 
-[UmbracoOptions(Constants.ServerVariablesSection)]
+[UmbracoOptions(Constants.ServerVariablesSection, BindNonPublicProperties = true)]
 public class ServerVariablesOptions
 {
     /// <summary>
@@ -19,4 +19,10 @@ public class ServerVariablesOptions
     /// <example></example>
     [DefaultValue("no-cache, no-store, must-revalidate")]
     public string? CacheHeader { get; set; } = "no-cache, no-store, must-revalidate";
+
+    /// <summary>
+    ///     Gets the server variables.
+    /// </summary>
+    [DefaultValue(null)]
+    public Dictionary<string, dynamic>? Variables { get; set; }
 }

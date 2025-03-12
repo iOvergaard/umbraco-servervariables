@@ -3,6 +3,19 @@ using Umbraco.Cms.Core.Composing;
 
 namespace ServerVariables.TestSite;
 
+public class ServerVariablesComposer : IComposer
+{
+    public void Compose(IUmbracoBuilder builder)
+    {
+        builder.Services.AddOptions<ServerVariablesOptions>()
+            .Configure((options) =>
+            {
+                options.Namespace = "vars";
+                options.Variables = new Dictionary<string, dynamic> { { "hello", "from options" }, { "isEnabled", true } };
+            });
+    }
+}
+
 public class TestServerVariablesComposer : ComponentComposer<TestServerVariablesComponent>
 {
 }
