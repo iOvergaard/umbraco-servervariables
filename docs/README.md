@@ -29,18 +29,22 @@ The package is configured using the `appsettings.json` file in your project. The
 {
   "ServerVariables": {
     "Namespace": "vars",
-    "CacheHeader": "no-cache, no-store, must-revalidate"
+    "CacheHeader": "no-cache, no-store, must-revalidate",
+    "Values": {
+      "MyVariable": "MyValue"
+    }
   }
 }
 ```
 
 - **Namespace** - This is the namespace that the variables will be available under in the frontend through the importmap. For example, if you set this to `myVars`, you will import the variables like this: `import { MyVariable } from 'myVars';`. |
 - **CacheHeader** - This is the cache header value that will be set on the importmap. This is useful if you want to cache the importmap. By default, it is set to `no-cache, no-store, must-revalidate`, which tells the browser to not cache anything. |
+- **Values** - This is a dictionary of variables that you want to expose to the frontend. The key is the variable name, and the value is the variable value. |
 
 ## Usage
 
-Use either the `IServerVariablesService` or the `appsettings.json` file to add variables to the importmap. The variables will be available in the frontend under the namespace you set in the configuration:
+Use the `IServerVariablesService`, the `appsettings.json` file, or the options pattern to add variables to the importmap. The variables will be available in the frontend under the namespace you set in the configuration:
 
 - [Configuration through appsettings.json](01-appsettings.md)
-- [Configuration through IServerVariablesService](02-csharp.md)
+- [Configuration through .NET](02-csharp.md)
 - [Usage in the Frontend](03-frontend.md)
