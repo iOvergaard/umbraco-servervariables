@@ -2,7 +2,7 @@ using Microsoft.Extensions.Options;
 
 namespace ServerVariables.Services;
 
-public class ServerVariablesService(IOptions<ServerVariablesOptions>? options) : IServerVariablesService
+public class ServerVariablesService(IOptions<ServerVariablesOptions> options) : IServerVariablesService
 {
     private readonly Dictionary<string, Dictionary<string, dynamic>> _serverVariables = new();
 
@@ -46,7 +46,7 @@ public class ServerVariablesService(IOptions<ServerVariablesOptions>? options) :
         }
 
         // Append the app settings
-        Dictionary<string, dynamic>? appSettings = options.Value.Variables;
+        Dictionary<string, dynamic>? appSettings = options.Value.Values;
 
         if (appSettings == null)
         {
