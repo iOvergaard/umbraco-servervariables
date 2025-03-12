@@ -13,6 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\umbraco-marketplace.json = ..\umbraco-marketplace.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{0653A9B2-5DA0-4D0F-A1F7-3A654B041ABC}"
+	ProjectSection(SolutionItems) = preProject
+		..\docs\images\1-appsettings.jpg = ..\docs\images\1-appsettings.jpg
+		..\docs\images\2-csharp.jpg = ..\docs\images\2-csharp.jpg
+		..\docs\01-appsettings.md = ..\docs\01-appsettings.md
+		..\docs\03-frontend.md = ..\docs\03-frontend.md
+		..\docs\02-csharp.md = ..\docs\02-csharp.md
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerVariables.TestSite", "ServerVariables.TestSite\ServerVariables.TestSite.csproj", "{A5C8B210-4D48-4373-BE01-658117F38C47}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerVariables", "ServerVariables\ServerVariables.csproj", "{9E72F602-E242-45FD-B2EA-343B1D045B20}"
