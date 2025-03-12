@@ -65,4 +65,9 @@ public class ServerVariablesService(IOptions<ServerVariablesOptions> options) : 
     {
         return _serverVariables.TryAdd(sectionName, variables);
     }
+
+    public Dictionary<string, Dictionary<string, dynamic>> GetAll()
+    {
+        return _serverVariables;
+    }
 }

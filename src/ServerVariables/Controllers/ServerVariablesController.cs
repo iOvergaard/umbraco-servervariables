@@ -2,9 +2,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using ServerVariables.Services;
 using StackExchange.Profiling.Internal;
+using Umbraco.Cms.Api.Common.Attributes;
 
 namespace ServerVariables.Controllers;
 
+[MapToApi(Constants.ApiName)]
+[ApiExplorerSettings(GroupName = "Variables")]
 [Route("/App_Plugins/ServerVariables/")]
 public class ServerVariablesController(
     IServerVariablesService serverVariablesService,

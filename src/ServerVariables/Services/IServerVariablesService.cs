@@ -30,4 +30,10 @@ public interface IServerVariablesService
     /// <param name="sectionName">The name of the section</param>
     /// <param name="variables">The dictionary of the variables</param>
     public bool SetSection(string sectionName, Dictionary<string, dynamic> variables);
+
+    /// <summary>
+    ///     Gets all server variables
+    /// </summary>
+    /// <returns></returns>
+    public Dictionary<string, Dictionary<string, dynamic>> GetAll();
 }
