@@ -28,6 +28,6 @@ public interface IServerVariablesService
     ///     Sets a section of server variables
     /// </summary>
     /// <param name="sectionName">The name of the section</param>
-    /// <param name="values">The dictionary of the variables</param>
-    public bool SetSection(string sectionName, Dictionary<string, dynamic> values);
+    /// <param name="variables">The dictionary of the variables</param>
+    public bool SetSection(string sectionName, Dictionary<string, dynamic> variables);
 }

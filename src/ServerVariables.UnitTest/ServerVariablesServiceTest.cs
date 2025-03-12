@@ -82,14 +82,14 @@ public class ServerVariablesServiceTest
     public void Test_SetSection()
     {
         // Arrange
-        Dictionary<string, dynamic> values = new()
+        Dictionary<string, dynamic> variables = new()
         {
             {"FromTest", "Hello from test"},
             {"FromTest2", "Hello from test 2"}
         };
 
         // Act
-        var result = _serverVariablesService.SetSection("test", values);
+        var result = _serverVariablesService.SetSection("test", variables);
 
         // Assert
         Assert.That(result, Is.True);
