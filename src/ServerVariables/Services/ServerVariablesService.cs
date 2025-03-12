@@ -1,28 +1,18 @@
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace ServerVariables.Services;
 
-public class ServerVariablesService(IConfiguration configuration) : IServerVariablesService
+public class ServerVariablesService(IConfiguration configuration, IOptionsMonitor<ServerVariablesOptions> options) : IServerVariablesService
 {
-    private readonly Dictionary<string, Dictionary<string, string?>> _serverVariables = new();
-
-    public Dictionary<string, string?> GetAppSettings()
-    {
-        IConfigurationSection serverVariablesSection = configuration.GetSection(Constants.ServerVariablesValues);
-        return serverVariablesSection
-            .AsEnumerable()
-            .Where(x => !string.IsNullOrEmpty(x.Value))
-            .ToDictionary(x =>
-                    x.Key.Replace($"{Constants.ServerVariablesValues}:", string.Empty),
-                x => x.Value);
-    }
+    private readonly Dictionary<string, Dictionary<string, dynamic>> _serverVariables = new();
 
     public void SetVariable(string key, string value, string sectionName)
     {
         // Check if the section exists
-        if (!_serverVariables.TryGetValue(sectionName, out Dictionary<string, string?>? section))
+        if (!_serverVariables.TryGetValue(sectionName, out Dictionary<string, dynamic>? section))
         {
-            section = new Dictionary<string, string?>();
+            section = new Dictionary<string, dynamic>();
             _serverVariables.Add(sectionName, section);
         }
 
@@ -38,14 +28,41 @@ public class ServerVariablesService(IConfiguration configuration) : IServerVaria
         SetVariable(key, value, "index");
     }
 
-    public Dictionary<string, string?> GetSection(string section)
+    public Dictionary<string, dynamic> GetSection(string section)
     {
-        return !_serverVariables.TryGetValue(section, out Dictionary<string, string?>? sectionVariables)
-            ? new Dictionary<string, string?>()
-            : sectionVariables;
+        Dictionary<string, dynamic> result = new();
+        _serverVariables.TryGetValue(section, out Dictionary<string, dynamic>? serverVariables);
+
+        if (serverVariables != null)
+        {
+            foreach (var (key, value) in serverVariables)
+            {
+                result.TryAdd(key, value);
+            }
+        }
+
+        if (!string.Equals(section, "index", StringComparison.OrdinalIgnoreCase))
+        {
+            return result;
+        }
+
+        // Append the app settings
+        Dictionary<string, dynamic>? appSettings = options.CurrentValue.Variables;
+
+        if (appSettings == null)
+        {
+            return result;
+        }
+
+        foreach (var (key, value) in appSettings)
+        {
+            result.TryAdd(key, value);
+        }
+
+        return result;
     }
 
-    public bool SetSection(string sectionName, Dictionary<string, string?> values)
+    public bool SetSection(string sectionName, Dictionary<string, dynamic> values)
     {
         return _serverVariables.TryAdd(sectionName, values);
     }
