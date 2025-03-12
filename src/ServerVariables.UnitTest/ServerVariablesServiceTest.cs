@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using ServerVariables.Services;
+#pragma warning disable CS8634 // The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'class' constraint.
 
 namespace ServerVariables.UnitTest;
 
@@ -17,7 +18,11 @@ public class ServerVariablesServiceTest
             .Build();
 
         IOptions<ServerVariablesOptions> options =
-            Options.Create(configuration.GetSection(Constants.ServerVariablesSection).Get<ServerVariablesOptions>());
+            Options.Create(
+                configuration
+                    .GetSection(Constants.ServerVariablesSection)
+                    .Get<ServerVariablesOptions>()
+            )!;
 
         _serverVariablesService = new ServerVariablesService(options);
     }
