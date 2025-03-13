@@ -43,8 +43,16 @@ public class ServerVariablesItemsApiController(IServerVariablesService serverVar
         Dictionary<string, Dictionary<string, dynamic>> serverVariables = serverVariablesService.GetAll();
         foreach (var (section, variables) in serverVariables)
         {
+            if (cancellationToken.IsCancellationRequested)
+            {
+                break;
+            }
             foreach (var (key, value) in variables)
             {
+                if (cancellationToken.IsCancellationRequested)
+                {
+                    break;
+                }
                 items.Add(new ServerVariablesCollectionResponseModel
                 {
                     Key = key,
