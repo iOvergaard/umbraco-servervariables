@@ -12,6 +12,22 @@ namespace ServerVariables.ApiControllers;
 [ApiExplorerSettings(GroupName = "Variables")]
 public class ServerVariablesItemsApiController(IServerVariablesService serverVariablesService) : ServerVariablesApiControllerBase
 {
+    [HttpGet]
+    [ProducesResponseType(typeof(Dictionary<string, dynamic>), StatusCodes.Status200OK, "application/json")]
+    public IActionResult All(CancellationToken cancellationToken)
+    {
+        Dictionary<string, Dictionary<string, dynamic>> serverVariables = serverVariablesService.GetAll();
+        return Ok(serverVariables);
+    }
+
+    [HttpGet("section/{section}")]
+    [ProducesResponseType(typeof(Dictionary<string, dynamic>), StatusCodes.Status200OK, "application/json")]
+    public IActionResult Section(CancellationToken cancellationToken, string section = "index")
+    {
+        Dictionary<string, dynamic> serverVariables = serverVariablesService.GetSection(section);
+        return Ok(serverVariables);
+    }
+
     [HttpGet("items")]
     [ProducesResponseType(typeof(PagedViewModel<ServerVariablesCollectionResponseModel>), StatusCodes.Status200OK, "application/json")]
     public IActionResult Items(
