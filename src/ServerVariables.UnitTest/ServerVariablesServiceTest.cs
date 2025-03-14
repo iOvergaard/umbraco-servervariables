@@ -92,8 +92,7 @@ public class ServerVariablesServiceTest
         // Arrange
         Dictionary<string, dynamic> variables = new()
         {
-            {"FromTest", "Hello from test"},
-            {"FromTest2", "Hello from test 2"}
+            { "FromTest", "Hello from test" }, { "FromTest2", "Hello from test 2" }
         };
 
         // Act
@@ -152,7 +151,8 @@ public class ServerVariablesServiceTest
 
         // Act
         Attempt<IEnumerable<ServerVariablesCollectionResponseModel>?, CollectionOperationStatus> result =
-            _serverVariablesService.GetPagedItems("section", Direction.Ascending, null, 0, 2, CancellationToken.None, out var totalNumberOfItems);
+            _serverVariablesService.GetPagedItems("section", Direction.Ascending, null, 0, 2, CancellationToken.None,
+                out var totalNumberOfItems);
 
         Assert.Multiple(() =>
         {
@@ -173,7 +173,9 @@ public class ServerVariablesServiceTest
         _serverVariablesService.SetVariable("FromTest", "Hello from test", "test");
 
         // Act: Paging
-        Attempt<IEnumerable<ServerVariablesCollectionResponseModel>?, CollectionOperationStatus> result = _serverVariablesService.GetPagedItems("section", Direction.Ascending, null, 2, 1, CancellationToken.None, out var totalNumberOfItems);
+        Attempt<IEnumerable<ServerVariablesCollectionResponseModel>?, CollectionOperationStatus> result =
+            _serverVariablesService.GetPagedItems("section", Direction.Ascending, null, 2, 1, CancellationToken.None,
+                out var totalNumberOfItems);
 
         // Assert
         Assert.Multiple(() =>
@@ -195,7 +197,9 @@ public class ServerVariablesServiceTest
         _serverVariablesService.SetVariable("FromTest", "Hello from test", "test");
 
         // Act: SkipTakeToPagingProblem
-        Attempt<IEnumerable<ServerVariablesCollectionResponseModel>?, CollectionOperationStatus> result = _serverVariablesService.GetPagedItems("section", Direction.Ascending, null, 1, 2, CancellationToken.None, out var totalNumberOfItems);
+        Attempt<IEnumerable<ServerVariablesCollectionResponseModel>?, CollectionOperationStatus> result =
+            _serverVariablesService.GetPagedItems("section", Direction.Ascending, null, 1, 2, CancellationToken.None,
+                out var totalNumberOfItems);
 
         // Assert
         Assert.Multiple(() =>
