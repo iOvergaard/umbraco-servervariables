@@ -1,3 +1,6 @@
+using ServerVariables.Models;
+using Umbraco.Cms.Core;
+
 namespace ServerVariables.Services;
 
 public interface IServerVariablesService
@@ -36,4 +39,18 @@ public interface IServerVariablesService
     /// </summary>
     /// <returns></returns>
     public Dictionary<string, Dictionary<string, dynamic>> GetAll();
+
+    /// <summary>
+    ///     Gets all server variables
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <param name="orderBy"></param>
+    /// <param name="orderDirection"></param>
+    /// <param name="filter"></param>
+    /// <param name="skip"></param>
+    /// <param name="take"></param>
+    /// <param name="totalNumberOfItems"></param>
+    /// <returns></returns>
+    public Attempt<IEnumerable<ServerVariablesCollectionResponseModel>?, CollectionOperationStatus> GetPagedItems(string orderBy, Direction orderDirection, string? filter, int skip,
+        int take, CancellationToken cancellationToken, out int totalNumberOfItems);
 }
