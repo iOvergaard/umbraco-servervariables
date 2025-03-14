@@ -1,6 +1,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using ServerVariables.Models;
 using ServerVariables.Services;
+using Umbraco.Cms.Core;
+
 #pragma warning disable CS8634 // The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'class' constraint.
 
 namespace ServerVariables.UnitTest;
@@ -107,6 +110,98 @@ public class ServerVariablesServiceTest
             Assert.That(section["FromTest"], Is.EqualTo("Hello from test"));
             Assert.That(section.ContainsKey("FromTest2"), Is.True);
             Assert.That(section["FromTest2"], Is.EqualTo("Hello from test 2"));
+        });
+    }
+
+    [Test]
+    public void Test_GetAll()
+    {
+        // Arrange
+        _serverVariablesService.SetVariable("FromTest", "Hello from test");
+        _serverVariablesService.SetVariable("FromBoolean", true);
+        _serverVariablesService.SetVariable("FromTest", "Hello from test", "test");
+
+        // Act
+        Dictionary<string, Dictionary<string, dynamic>> all = _serverVariablesService.GetAll();
+
+        // Assert
+        Assert.That(all, Is.Not.Null);
+        Assert.Multiple(() =>
+        {
+            Assert.That(all, Is.Not.Empty);
+            Assert.That(all.ContainsKey("index"), Is.True);
+            Assert.That(all["index"], Is.Not.Empty);
+            Assert.That(all["index"].ContainsKey("FromTest"), Is.True);
+            Assert.That(all["index"]["FromTest"], Is.EqualTo("Hello from test"));
+            Assert.That(all["index"].ContainsKey("FromBoolean"), Is.True);
+            Assert.That(all["index"]["FromBoolean"], Is.EqualTo(true));
+            Assert.That(all.ContainsKey("test"), Is.True);
+            Assert.That(all["test"], Is.Not.Empty);
+            Assert.That(all["test"].ContainsKey("FromTest"), Is.True);
+            Assert.That(all["test"]["FromTest"], Is.EqualTo("Hello from test"));
+        });
+    }
+
+    [Test]
+    public void Test_GetPagedItems()
+    {
+        // Arrange
+        _serverVariablesService.SetVariable("FromTest", "Hello from test");
+        _serverVariablesService.SetVariable("FromBoolean", true);
+        _serverVariablesService.SetVariable("FromTest", "Hello from test", "test");
+
+        // Act
+        Attempt<IEnumerable<ServerVariablesCollectionResponseModel>?, CollectionOperationStatus> result =
+            _serverVariablesService.GetPagedItems("section", Direction.Ascending, null, 0, 2, CancellationToken.None, out var totalNumberOfItems);
+
+        Assert.Multiple(() =>
+        {
+            // Assert
+            Assert.That(result.Success, Is.True);
+            Assert.That(result.Result, Is.Not.Null);
+            Assert.That(result.Result, Is.Not.Empty);
+            Assert.That(totalNumberOfItems, Is.EqualTo(3));
+        });
+    }
+
+    [Test]
+    public void Test_GetPagedItemsPaging()
+    {
+        // Arrange
+        _serverVariablesService.SetVariable("FromTest", "Hello from test");
+        _serverVariablesService.SetVariable("FromBoolean", true);
+        _serverVariablesService.SetVariable("FromTest", "Hello from test", "test");
+
+        // Act: Paging
+        Attempt<IEnumerable<ServerVariablesCollectionResponseModel>?, CollectionOperationStatus> result = _serverVariablesService.GetPagedItems("section", Direction.Ascending, null, 2, 1, CancellationToken.None, out var totalNumberOfItems);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.Success, Is.True);
+            Assert.That(result.Result, Is.Not.Null);
+            Assert.That(result.Result, Is.Not.Empty);
+            Assert.That(result.Result!.Count, Is.EqualTo(1));
+            Assert.That(totalNumberOfItems, Is.EqualTo(3));
+        });
+    }
+
+    [Test]
+    public void Test_GetPagedItemsSkipTakePagingProblem()
+    {
+        // Arrange
+        _serverVariablesService.SetVariable("FromTest", "Hello from test");
+        _serverVariablesService.SetVariable("FromBoolean", true);
+        _serverVariablesService.SetVariable("FromTest", "Hello from test", "test");
+
+        // Act: SkipTakeToPagingProblem
+        Attempt<IEnumerable<ServerVariablesCollectionResponseModel>?, CollectionOperationStatus> result = _serverVariablesService.GetPagedItems("section", Direction.Ascending, null, 1, 2, CancellationToken.None, out var totalNumberOfItems);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result.Success, Is.False);
+            Assert.That(result.Status, Is.EqualTo(CollectionOperationStatus.InvalidSkipTake));
         });
     }
 }
