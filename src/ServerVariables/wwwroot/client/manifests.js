@@ -1,4 +1,7 @@
+import { manifests as storeManifests } from './stores/manifests.js';
+
 export const manifests = [
+  ...storeManifests,
   {
     type: 'menuItem',
     name: 'Server Variables Menu Root Item',
