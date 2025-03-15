@@ -23,16 +23,14 @@ internal sealed class UmbracoPackage : IComposer
             Assembly assembly = typeof(UmbracoPackage).Assembly;
             var version = assembly.GetName().Version?.ToString() ?? "0.0.0";
 
-            PackageManifest packageManifest = new()
+            PackageManifest publicPackageManifest = new()
             {
                 Id = "Umbraco.Community.ServerVariables",
-                Name = assembly.GetName().FullName,
+                Name = "Server Variables",
                 AllowTelemetry = true,
                 Version = version,
-                Extensions = [
-                    BundleManifest()
-                ],
-                AllowPublicAccess = false,
+                Extensions = [],
+                AllowPublicAccess = true,
                 Importmap = new PackageManifestImportmap
                 {
                     Imports = new Dictionary<string, string>
@@ -43,7 +41,19 @@ internal sealed class UmbracoPackage : IComposer
                 }
             };
 
-            IEnumerable<PackageManifest> manifests = new List<PackageManifest> { packageManifest };
+            PackageManifest privatePackageManifest = new()
+            {
+                Id = "Umbraco.Community.ServerVariables.Client",
+                Name = "Server Variables Client",
+                AllowTelemetry = false,
+                Version = version,
+                Extensions = [
+                    BundleManifest()
+                ],
+                AllowPublicAccess = false
+            };
+
+            IEnumerable<PackageManifest> manifests = new List<PackageManifest> { publicPackageManifest, privatePackageManifest };
             return Task.FromResult(manifests);
         }
 
