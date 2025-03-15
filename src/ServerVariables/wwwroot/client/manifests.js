@@ -1,6 +1,8 @@
+import { manifests as repositoryManifests } from './repositories/manifests.js';
 import { manifests as storeManifests } from './stores/manifests.js';
 
 export const manifests = [
+  ...repositoryManifests,
   ...storeManifests,
   {
     type: 'menuItem',
@@ -67,10 +69,4 @@ export const manifests = [
       },
     ],
   },
-  {
-    type: 'repository',
-    alias: 'ServerVariables.Items.Repository.Variables',
-    name: 'Server Variables Items Repository',
-    api: () => import('./repositories/sv-items.repository.js'),
-  }
 ];
