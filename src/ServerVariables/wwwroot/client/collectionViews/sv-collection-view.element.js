@@ -58,7 +58,7 @@ export class SvCollectionView extends UmbLitElement {
     this._tableItems = items.map(item => {
       return {
         id: item.key,
-        icon: 'icon-globe',
+        icon: 'icon-script',
         data: [
           {
             columnAlias: 'key',
