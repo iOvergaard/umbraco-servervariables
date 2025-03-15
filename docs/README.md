@@ -48,3 +48,5 @@ Use the `IServerVariablesService`, the `appsettings.json` file, or the options p
 - [Configuration through appsettings.json](01-appsettings.md)
 - [Configuration through .NET](02-csharp.md)
 - [Usage in the Frontend](03-frontend.md)
+- [Usage with a context](04-context.md)
+- [Backoffice views](05-backoffice.md)

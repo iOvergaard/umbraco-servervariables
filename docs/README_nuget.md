@@ -35,6 +35,8 @@ See the documentation for more information on how to use the package:
 - [Usage with appsettings.json](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/01-appsettings.md)
 - [Usage with IServerVariablesService](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/02-csharp.md)
 - [Usage in the Frontend](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/03-frontend.md)
+- [Usage with a context](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/04-context.md)
+- [Backoffice views](https://github.com/iOvergaard/umbraco-servervariables/blob/main/docs/05-backoffice.md)
 
 ## Acknowledgements
 
