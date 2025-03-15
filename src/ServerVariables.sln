@@ -19,8 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{0653A9B2-5
 		..\docs\images\2-csharp.jpg = ..\docs\images\2-csharp.jpg
 		..\docs\README.md = ..\docs\README.md
 		..\docs\01-appsettings.md = ..\docs\01-appsettings.md
-		..\docs\03-frontend.md = ..\docs\03-frontend.md
 		..\docs\02-csharp.md = ..\docs\02-csharp.md
+		..\docs\03-frontend.md = ..\docs\03-frontend.md
+		..\docs\04-context.md = ..\docs\04-context.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerVariables.TestSite", "ServerVariables.TestSite\ServerVariables.TestSite.csproj", "{A5C8B210-4D48-4373-BE01-658117F38C47}"
