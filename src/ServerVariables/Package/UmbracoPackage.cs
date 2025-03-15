@@ -30,9 +30,7 @@ internal sealed class UmbracoPackage : IComposer
                 AllowTelemetry = true,
                 Version = version,
                 Extensions = [
-                    SettingsMenuItem(),
-                    //Workspace(),
-                    //WorkspaceView()
+                    BundleManifest()
                 ],
                 AllowPublicAccess = false,
                 Importmap = new PackageManifestImportmap
@@ -49,22 +47,12 @@ internal sealed class UmbracoPackage : IComposer
             return Task.FromResult(manifests);
         }
 
-        private static Dictionary<string, dynamic> SettingsMenuItem() => new()
+        private static Dictionary<string, dynamic> BundleManifest() => new()
         {
-            ["type"] = "menuItem",
-            ["name"] = "Server Variables Menu Root Item",
-            ["alias"] = "ServerVariables.Menu.RootItem",
-            ["meta"] = new Dictionary<string, dynamic>
-            {
-                ["label"] = "Server Variables",
-                ["icon"] = "icon-wand",
-                ["entityType"] = "servervariables-root",
-                ["menus"] = new List<string>{"Umb.Menu.AdvancedSettings"}
-            }
+            ["type"] = "bundle",
+            ["name"] = "Server Variables Bundle",
+            ["alias"] = "ServerVariables.Bundle",
+            ["js"] = "/App_Plugins/ServerVariables/client/manifests.js"
         };
-
-        private static Dictionary<string, dynamic> Workspace() => throw new NotImplementedException();
-
-        private static Dictionary<string, dynamic> WorkspaceView() => throw new NotImplementedException();
     }
 }
