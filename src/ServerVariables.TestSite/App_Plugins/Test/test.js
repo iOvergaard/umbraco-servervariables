@@ -15,13 +15,14 @@ assert(brand.brand === 'My Brand', 'brand.brand should be defined');
 
 export const onInit = (host) => {
   console.log('onInit', host);
-  host.consumeContext('ServerVariablesContext', (context) => {
+  host.consumeContext('ServerVariablesContext', async (context) => {
     assert(context, 'consumeContext should be defined');
     assert(context.getAll, 'context.getAll should be defined');
     assert(context.getSection, 'context.getSection should be defined');
-    context.getAll().then((data) => {
-      console.log('getAll', data);
-    });
+
+    const all = await context.getAll();
+    assert(all.index.apiKey === '123456789', 'all.index.apiKey should be defined');
+    console.log('getAll', all);
   });
 }
 
