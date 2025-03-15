@@ -44,7 +44,7 @@ export const manifests = [
     alias: 'ServerVariables.Collection.Variables',
     name: 'Server Variables Collection',
     meta: {
-      repositoryAlias: 'ServerVariables.Repository.Variables',
+      repositoryAlias: 'ServerVariables.Items.Repository.Variables',
     },
   },
   {
@@ -66,8 +66,8 @@ export const manifests = [
   },
   {
     type: 'repository',
-    alias: 'ServerVariables.Repository.Variables',
-    name: 'Server Variables Repository',
-    api: () => import('./repositories/sv-repository.js'),
+    alias: 'ServerVariables.Items.Repository.Variables',
+    name: 'Server Variables Items Repository',
+    api: () => import('./repositories/sv-items.repository.js'),
   }
 ];
