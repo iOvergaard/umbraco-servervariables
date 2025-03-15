@@ -5,6 +5,12 @@ export const manifests = [
   ...repositoryManifests,
   ...storeManifests,
   {
+    type: 'globalContext',
+    alias: 'ServerVariables.GlobalContext',
+    name: 'Server Variables Global Context',
+    js: () => import('./globalContexts/sv.global-context.js'),
+  },
+  {
     type: 'menuItem',
     name: 'Server Variables Menu Root Item',
     alias: 'ServerVariables.Menu.RootItem',

@@ -28,6 +28,14 @@ export class SvVariablesStore extends UmbContextBase {
   getAll() {
     return this.#data;
   }
+
+  /**
+   * Sets the server variables
+   * @param data
+   */
+  setData(data) {
+    this.#data = data;
+  }
 }
 
 export default SvVariablesStore;

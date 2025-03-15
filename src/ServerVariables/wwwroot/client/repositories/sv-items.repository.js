@@ -1,7 +1,7 @@
 import { UmbRepositoryBase } from '@umbraco-cms/backoffice/repository';
 import { makeRequest } from "../functions.js";
 
-export class SvRepositoryVariables extends UmbRepositoryBase {
+export class SvItemsRepositoryVariables extends UmbRepositoryBase {
   async requestCollection(filter) {
     try {
       const urlParams = new URLSearchParams(filter);
@@ -15,10 +15,10 @@ export class SvRepositoryVariables extends UmbRepositoryBase {
           total: 0,
           items: []
         },
-        error: new Error(`Failed to get sv-repository variables for ${filter}: ${error.message}`),
+        error: new Error(`Failed to get sv-repository variables for ${filter ?? ''}: ${error.message}`),
       }
     }
   }
 }
 
-export default SvRepositoryVariables;
+export default SvItemsRepositoryVariables;

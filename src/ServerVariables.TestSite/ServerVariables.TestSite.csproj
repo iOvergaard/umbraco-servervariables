@@ -20,6 +20,11 @@
     <ProjectReference Include="..\ServerVariables\ServerVariables.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="App_Plugins\Test\test.js" />
+    <Content Include="App_Plugins\Test\umbraco-package.json" />
+  </ItemGroup>
+
   <PropertyGroup>
     <!-- Razor files are needed for the backoffice to work correctly -->
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
