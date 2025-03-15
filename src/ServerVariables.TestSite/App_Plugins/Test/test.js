@@ -13,6 +13,18 @@ console.log('brand', brand);
 
 assert(brand.brand === 'My Brand', 'brand.brand should be defined');
 
+export const onInit = (host) => {
+  console.log('onInit', host);
+  host.consumeContext('ServerVariablesContext', (context) => {
+    assert(context, 'consumeContext should be defined');
+    assert(context.getAll, 'context.getAll should be defined');
+    assert(context.getSection, 'context.getSection should be defined');
+    context.getAll().then((data) => {
+      console.log('getAll', data);
+    });
+  });
+}
+
 function assert(condition, message) {
   if (!condition) {
     throw new Error(message);
