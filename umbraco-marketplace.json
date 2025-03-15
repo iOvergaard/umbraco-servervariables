@@ -27,6 +27,10 @@
   "Title": "Server Variables",
   "Screenshots": [
     {
+      "ImageUrl": "https://raw.githubusercontent.com/iOvergaard/umbraco-servervariables/refs/heads/main/docs/images/workspace.jpg",
+      "Caption": "Show server variables in the Backoffice"
+    },
+    {
       "ImageUrl": "https://raw.githubusercontent.com/iOvergaard/umbraco-servervariables/refs/heads/main/docs/images/1-appsettings.jpg",
       "Caption": "Set up server variables through appsettings.json"
     },
