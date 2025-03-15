@@ -5,7 +5,7 @@ export const manifests = [
     alias: 'ServerVariables.Menu.RootItem',
     meta: {
       label: 'Server Variables',
-      icon: "icon-wand",
+      icon: "icon-script",
       entityType: 'servervariables-root',
       menus: ['Umb.Menu.AdvancedSettings']
     },
