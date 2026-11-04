@@ -31,6 +31,8 @@ internal sealed class UmbracoPackage : IComposer
                 Version = version,
                 Extensions = [],
                 AllowPublicAccess = true,
+                // A query string on the "vars/" prefix address makes browsers drop the importmap entry.
+                AllowCacheBusting = false,
                 Importmap = new PackageManifestImportmap
                 {
                     Imports = new Dictionary<string, string>
