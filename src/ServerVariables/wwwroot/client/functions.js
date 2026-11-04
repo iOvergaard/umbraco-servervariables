@@ -1,4 +1,4 @@
-import { UMB_AUTH_CONTEXT } from '@umbraco-cms/backoffice/auth';
+import { umbHttpClient } from '@umbraco-cms/backoffice/http-client';
 
 /**
  * Make an authorized request to any Backoffice API.
@@ -9,15 +9,20 @@ import { UMB_AUTH_CONTEXT } from '@umbraco-cms/backoffice/auth';
  * @returns The response from the request as JSON.
  */
 export async function makeRequest(host, url, method = 'GET', body) {
-  const authContext = await host.getContext(UMB_AUTH_CONTEXT);
-  const token = await authContext.getLatestToken();
-  const response = await fetch(url, {
+  // The security entry makes the client send the auth the running Umbraco version expects (bearer or cookie).
+  const { data, error } = await umbHttpClient.request({
+    url,
     method,
-    body: body ? JSON.stringify(body) : undefined,
+    body,
+    security: [{ scheme: 'bearer', type: 'http' }],
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
     },
   });
-  return response.json();
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
 }
