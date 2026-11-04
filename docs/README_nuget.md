@@ -24,8 +24,11 @@ console.log(vars); // { apiUrl: 'https://api.example.com' }
 
 ## Requirements
 
-- Umbraco 15 or higher
-- .NET 9 or higher
+| Package version | Umbraco version | .NET version |
+| --------------- | --------------- | ------------ |
+| 2.x             | 18 or higher    | 10 or higher |
+| 1.x             | 17.6 or higher  | 10           |
+| 0.4.x           | 15 and 16       | 9            |
 
 ## Usage
 
