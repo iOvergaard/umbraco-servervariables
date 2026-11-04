@@ -4,7 +4,7 @@
 
 | Package version | Umbraco version | .NET version |
 | --------------- | --------------- | ------------ |
-| 2.x             | 18 or higher    | 10 or higher |
+| 2.x             | 18.1 or higher  | 10 or higher |
 | 1.x             | 17.6 or higher  | 10           |
 | 0.4.x           | 15 and 16       | 9            |
 
