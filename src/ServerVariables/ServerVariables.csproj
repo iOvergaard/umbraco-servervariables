@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <StaticWebAssetBasePath>/App_Plugins/ServerVariables/</StaticWebAssetBasePath>
@@ -28,10 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Umbraco.Cms.Api.Common" Version="15.0.0" />
-    <PackageReference Include="Umbraco.Cms.Api.Management" Version="15.0.0" />
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="15.0.0" />
-    <PackageReference Include="Umbraco.Cms.Web.Common" Version="15.0.0" />
+    <PackageReference Include="Umbraco.Cms.Api.Common" Version="17.6.0" />
+    <PackageReference Include="Umbraco.Cms.Api.Management" Version="17.6.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="17.6.0" />
+    <PackageReference Include="Umbraco.Cms.Web.Common" Version="17.6.0" />
   </ItemGroup>
 
 </Project>
